@@ -7,7 +7,7 @@ namespace EventDrivenECommerce.AppDBContext
     {
         public db_context(DbContextOptions<db_context> options) : base(options) { }
 
-        public DbSet<Order>Order  { get; set; }
+        public DbSet<Orders>Orders  { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
