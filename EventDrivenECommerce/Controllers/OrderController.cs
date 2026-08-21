@@ -1,5 +1,6 @@
 ﻿using EventDrivenECommerce.DTOs;
 using EventDrivenECommerce.Interfaces;
+using EventDrivenECommerce.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,16 @@ namespace EventDrivenECommerce.Controllers
             var order = await _orderService.CreateOrderAsync(request);
 
             return Ok(order);
+        }
+        [HttpGet("GetOrderList")]
+        public async Task<ActionResult> GetOrderList()
+        {
+            var data = await _orderService.GetOrderList();
+            if(data == null)
+            {
+                return null;
+            }
+            return Ok(data);
         }
     }
 }

@@ -5,6 +5,7 @@ namespace EventDrivenECommerce.Interfaces
 {
     public interface IOrderService
     {
+        Task<Orders> GetOrderList();
         Task<Orders> CreateOrderAsync(CreateOrderRequest request);
     }
 }

@@ -2,6 +2,7 @@
 using EventDrivenECommerce.DTOs;
 using EventDrivenECommerce.Interfaces;
 using EventDrivenECommerce.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventDrivenECommerce.Services
 {
@@ -32,6 +33,16 @@ namespace EventDrivenECommerce.Services
             await _context.SaveChangesAsync();
 
             return order;
+        }
+
+        public async Task<Orders> GetOrderList()
+        {
+            var data = await _context.Orders.FirstOrDefaultAsync();
+            if(data == null){
+                return null;
+            }
+            return data;
+            
         }
     }
 }
