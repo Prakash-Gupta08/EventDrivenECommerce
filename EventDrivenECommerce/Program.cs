@@ -21,7 +21,9 @@ builder.Services.AddDbContext<db_context>(options =>
 
 // Dependency Injection
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IRabbitMqProducer, RabbitMqProducer>();
 builder.Services.AddHostedService<RabbitMqConsumer>();
+
 
 var app = builder.Build();
 

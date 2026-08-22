@@ -25,6 +25,7 @@ namespace EventDrivenECommerce.Controllers
 
             return Ok(order);
         }
+
         [HttpGet("GetOrderList")]
         public async Task<ActionResult> GetOrderList()
         {
@@ -36,14 +37,14 @@ namespace EventDrivenECommerce.Controllers
             return Ok(data);
         }
 
-        [HttpPost("test-rabbitmq")]
-        public async Task<IActionResult> TestRabbitMq()
-        {
-            var producer = new RabbitMqProducer();
+        //[HttpPost("test-rabbitmq")]
+        //public async Task<IActionResult> TestRabbitMq()
+        //{
+        //    var producer = new RabbitMqProducer();
 
-            await producer.SendMessageAsync("Hello RabbitMQ");
+        //    await producer.SendMessageAsync("Hello RabbitMQ");
 
-            return Ok("Message sent to RabbitMQ");
-        }
+        //    return Ok("Message sent to RabbitMQ");
+        //}
     }
 }
