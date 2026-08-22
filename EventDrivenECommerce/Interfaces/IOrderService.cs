@@ -1,4 +1,5 @@
-﻿using EventDrivenECommerce.DTOs;
+﻿using EventDrivenECommerce.Common;
+using EventDrivenECommerce.DTOs;
 using EventDrivenECommerce.Model;
 
 namespace EventDrivenECommerce.Interfaces

@@ -1,6 +1,7 @@
 ﻿using EventDrivenECommerce.DTOs;
 using EventDrivenECommerce.Interfaces;
 using EventDrivenECommerce.Model;
+using EventDrivenECommerce.RabbitMQ;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,16 @@ namespace EventDrivenECommerce.Controllers
                 return null;
             }
             return Ok(data);
+        }
+
+        [HttpPost("test-rabbitmq")]
+        public async Task<IActionResult> TestRabbitMq()
+        {
+            var producer = new RabbitMqProducer();
+
+            await producer.SendMessageAsync("Hello RabbitMQ");
+
+            return Ok("Message sent to RabbitMQ");
         }
     }
 }

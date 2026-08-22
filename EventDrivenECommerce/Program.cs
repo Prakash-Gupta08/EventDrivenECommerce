@@ -1,7 +1,8 @@
-using Microsoft.EntityFrameworkCore;
-using EventDrivenECommerce.Interfaces;
-using EventDrivenECommerce.Services;
 using EventDrivenECommerce.AppDBContext;
+using EventDrivenECommerce.Interfaces;
+using EventDrivenECommerce.RabbitMQ;
+using EventDrivenECommerce.Services;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<db_context>(options =>
 
 // Dependency Injection
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddHostedService<RabbitMqConsumer>();
 
 var app = builder.Build();
 
